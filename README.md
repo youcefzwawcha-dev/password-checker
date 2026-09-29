@@ -323,6 +323,8 @@ select a license that matches your intentions.
 
 ------------------------------------------------------------------------
 
-::: {align="center"}
+<div align="center">
+
 Made with ❤️ using HTML, CSS, and JavaScript.
-:::
+
+</div>
