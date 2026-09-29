@@ -307,7 +307,6 @@ or other sensitive information.
 
 ## 👨‍💻 Author
 
-**Youcef**\
 GitHub: [@YOUR-GITHUB-USERNAME](https://github.com/youcefzwawcha-dev)
 
 Replace `YOUR-GITHUB-USERNAME` in the link with your actual GitHub
