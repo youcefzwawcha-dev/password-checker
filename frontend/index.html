@@ -1,57 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Password Analyser</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Check how strong your password is. Everything runs in your browser.">
+  <link rel="stylesheet" href="style.css">
+  <title>Password Analyser</title>
 </head>
 <body>
 
-    <img class="logo" src="img/secure-logo.png" alt="security logo" height="100px">
+  <main class="page">
 
-    <hr>
-
-    <header>
-        <h1>THE PASSWORD ANALYSER</h1>
-        <p>Analyze your password and improve your security.</p>
+    <header class="site-header">
+      <img class="logo" src="img/secure-logo.png" alt="Security logo" height="100">
+      <h1>THE PASSWORD ANALYSER</h1>
+      <p class="tagline">Analyze your password and improve your security.</p>
     </header>
 
-    <section class="password-wrapper">
-            <label for="password">Enter your password </label>
-            <br>
-            <div class="password-holder">
-                <span>🔒</span>
-                <input type="password" required placeholder="Enter your password..." id="password">
-                <button class="eye-logo"><img class="eye" src="img/eye.png" id="toggle-password" alt="Show password" height="40px"></button>
-            </div>
+    <section class="password-wrapper" id="analyser" aria-labelledby="password-label">
 
-            <div class="strength">
-                <progress id="password-strength" value="70" max="100"></progress>
-            </div>
+      <label id="password-label" class="field-label" for="password">Enter your password</label>
 
-            <div class="result">
-                <strong>Password strength</strong>
-                <strong style="font-size: 25px;" class="status"></strong>
-            </div>
-           <button class="analyse">Analyze Password</button> 
-              <div>
-        <div class="description">
-            <div class="card">
-            <h2>Length</h2>
-            <p></p>
+      <div class="password-holder">
+        <span class="lock" aria-hidden="true">🔒</span>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password..."
+          autocomplete="new-password"
+          autocapitalize="off"
+          spellcheck="false">
+        <button type="button" class="eye-logo" id="toggle-password" aria-label="Show password" aria-pressed="false">
+          <svg class="icon icon-show" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          <svg class="icon icon-hide" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+            <path d="M17.94 17.94A10.94 10.94 0 0 1 12 20C5 20 1 12 1 12a18.5 18.5 0 0 1 5.06-5.94"/>
+            <path d="M9.9 4.24A9.1 9.1 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+            <path d="M14.12 14.12A3 3 0 1 1 9.88 9.88"/>
+            <line x1="1" y1="1" x2="23" y2="23"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="strength">
+        <div
+          class="bar"
+          id="strength-bar"
+          role="progressbar"
+          aria-label="Password strength"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0">
+          <div class="bar-fill"></div>
         </div>
+      </div>
+
+      <div class="result">
+        <strong>Password strength</strong>
+        <strong class="status" id="status" aria-live="polite"></strong>
+      </div>
+
+      <button type="button" class="generate" id="generate">Generate a strong password</button>
+
+      <div class="description">
         <div class="card">
-            <h2>Protection</h2>
-            <p>Security checks</p>
+          <h2>Length</h2>
+          <p id="length-info">0 Characters</p>
         </div>
+
+        <div class="card">
+          <h2>Protection</h2>
+          <ul class="checklist" id="checklist">
+            <li data-check="length">8+ characters</li>
+            <li data-check="lowercase">Lowercase letter</li>
+            <li data-check="uppercase">Uppercase letter</li>
+            <li data-check="number">Number</li>
+            <li data-check="symbol">Symbol</li>
+          </ul>
         </div>
-    </div>
+
+        <div class="card">
+          <h2>Time to crack</h2>
+          <p id="crack-info">—</p>
+          <small id="warning-info"></small>
+        </div>
+      </div>
+
+      <p class="privacy">Your password never leaves your browser. Nothing is sent or stored.</p>
     </section>
 
-    <footer>&copy; Copyright MIT License . &lt; <a href="https://github.com/youcefzwawcha-dev">Youcef</a> &gt;</footer>
+  </main>
 
-   <script src="../frontend/main.js"></script>
+  <footer>
+    &copy; Copyright MIT License . &lt; <a href="https://github.com/youcefzwawcha-dev">Youcef</a> &gt;
+  </footer>
 
+  <script src="main.js" defer></script>
 </body>
 </html>
