@@ -125,13 +125,13 @@ frontend.
 Replace the example URL below with the URL of your GitHub repository:
 
 ``` bash
-git clone https://github.com/YOUR-GITHUB-USERNAME/YOUR-REPOSITORY-NAME.git
+git clone https://github.com/youcefzwawcha-dev/password-checker.git
 ```
 
 ### 2. Open the Project Folder
 
 ``` bash
-cd YOUR-REPOSITORY-NAME
+cd password-checker
 ```
 
 ### 3. Launch the Webpage
